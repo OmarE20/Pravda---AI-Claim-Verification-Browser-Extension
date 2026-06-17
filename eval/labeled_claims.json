@@ -1,0 +1,58 @@
+[
+  {
+    "text": "The Eiffel Tower is approximately 330 meters tall.",
+    "expected_label": "supported"
+  },
+  {
+    "text": "Mount Everest is the tallest mountain on Earth, measured from sea level.",
+    "expected_label": "supported"
+  },
+  {
+    "text": "The Great Wall of China is visible to the naked eye from the Moon.",
+    "expected_label": "contradicted"
+  },
+  {
+    "text": "Humans only use 10% of their brains.",
+    "expected_label": "contradicted"
+  },
+  {
+    "text": "The Earth is flat.",
+    "expected_label": "contradicted"
+  },
+  {
+    "text": "Water boils at 100 degrees Celsius at sea level atmospheric pressure.",
+    "expected_label": "supported"
+  },
+  {
+    "text": "The COVID-19 vaccine alters human DNA.",
+    "expected_label": "contradicted"
+  },
+  {
+    "text": "Photosynthesis converts carbon dioxide and water into glucose and oxygen using light energy.",
+    "expected_label": "supported"
+  },
+  {
+    "text": "A particular unreleased pharmaceutical compound, codenamed XR-4471, will receive FDA approval in 2027.",
+    "expected_label": "insufficient"
+  },
+  {
+    "text": "There are exactly 14,382 species of beetle currently undiscovered by science.",
+    "expected_label": "insufficient"
+  },
+  {
+    "text": "My neighbor's cat prefers tuna over salmon.",
+    "expected_label": "insufficient"
+  },
+  {
+    "text": "The next major earthquake on the San Andreas fault will occur within the next five years.",
+    "expected_label": "insufficient"
+  },
+  {
+    "text": "The United States declared independence in 1776.",
+    "expected_label": "supported"
+  },
+  {
+    "text": "Albert Einstein failed mathematics in school.",
+    "expected_label": "contradicted"
+  }
+]

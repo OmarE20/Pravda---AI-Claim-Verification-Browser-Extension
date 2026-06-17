@@ -1,0 +1,2 @@
+/* The "Check with Pravda" floating button is styled inline in content-script.ts so it
+   has no dependency on page CSS. This file exists for future page-level styling needs. */
