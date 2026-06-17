@@ -2,10 +2,6 @@
 
 > Highlight any claim on a webpage. Get a sourced verdict in seconds — without leaving the page.
 
-**30-second demo:** _[Loom link placeholder — record: highlight a claim → click "Check with Pravda" → side panel shows verdict + evidence cards]_
-
----
-
 ## What it does
 
 Pravda lets you highlight any claim on a webpage and instantly scores it for evidence quality. It extracts the atomic claim, retrieves evidence from live web search and a curated vector corpus, ranks the sources by transparent reliability signals, and returns a grounded verdict — **supported**, **contradicted**, or **insufficient evidence** — with citations, all in a Chrome side panel.
@@ -40,63 +36,6 @@ flowchart LR
 | Source ranking | Custom heuristic (domain reputation + recency decay + corroboration) | Transparent, explainable — not a black-box score |
 | Backend | FastAPI (async) | Orchestrates extraction → retrieval → ranking → verdict |
 | Container | Docker + docker-compose | Reproducible deployment |
-
-## Quickstart
-
-### Backend
-
-```bash
-cd backend
-python -m venv .venv
-.venv/Scripts/activate        # Windows; use .venv/bin/activate on macOS/Linux
-pip install -r requirements.txt
-cp ../.env.example ../.env    # fill in OPENAI_API_KEY at minimum
-uvicorn app.main:app --reload --port 8000
-```
-
-Required env var: `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY` + `LLM_PROVIDER=anthropic`).
-Optional: `TAVILY_API_KEY` or `BRAVE_API_KEY` — without one, Pravda still works using corpus-only retrieval (`SEARCH_PROVIDER=none` is also valid).
-
-Seed the curated corpus once:
-
-```bash
-python -m eval.seed_corpus     # run from repo root, not backend/
-```
-
-### Extension
-
-```bash
-cd extension
-bun install   # or: npm install
-bun run build # or: npm run build  -> outputs extension/dist/
-```
-
-Then in Chrome: `chrome://extensions` → enable **Developer mode** → **Load unpacked** → select the `extension/` folder.
-
-Highlight any sentence on a webpage, click the **"Check with Pravda"** button that appears, and the side panel opens with the verdict.
-
-### Docker
-
-```bash
-docker compose up --build
-```
-
-### Tests & eval
-
-```bash
-make test    # pytest, offline, mocked LLM/search
-make eval    # runs the labeled claim set against the real pipeline (needs API keys)
-```
-
-## Eval results
-
-Seeded with 14 labeled claims (`eval/labeled_claims.json`) — a mix of true, false, and inherently unverifiable claims. **I'll expand this to 30-50 claims; the harness (`eval/run_eval.py`) is built to scale to that without changes.**
-
-| Metric | Result |
-|---|---|
-| Verdict accuracy (true/false claims) | _run `make eval` with an API key to populate_ |
-| Correct abstention rate (unverifiable claims) | _run `make eval` with an API key to populate_ |
-| Latency p50 / p95 | _run `make eval` with an API key to populate_ |
 
 ## Design decisions
 
